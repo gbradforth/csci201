@@ -1,0 +1,28 @@
+import java.util.*;
+import java.util.concurrent.*;
+
+public class RefreshSearch
+{
+    public RefreshSearch()
+    {
+        while(SearchDispatcher.searching == 1) 
+        {
+            executeSearch();
+        }
+    }
+
+    public Search extends Thread()
+    {
+        // insert code to redirect to search in dispatcher
+        Thread.sleep(60000);
+    }
+
+    public executeSearch()
+    {
+        ExecutorService executor = Executors.newFixedThreadPool(1);
+        Search search = new Search();
+        executor.execute(search);
+        executor.shutdown();
+    }
+
+}
